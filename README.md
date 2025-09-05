@@ -31,10 +31,11 @@ A escolha pelo funcionamento local garante:
 
 ## Funcionalidades (em desenvolvimento)
 
-- Tela de **login** utilizando Nuxt4 e TailwindCSS
-- API com Actix-web contendo duas rotas:
-  - `/` → Retorna "Servidor funcionando"
-  - `/register-user` → Para registrar usuários
+- Tela de **login** utilizando Nuxt4 e TailwindCSS (frontend rodando `http://localhost:3000`)
+- API com Actix-web contendo duas rotas :
+  - `http://localhost:8080` → Retorna "Servidor funcionando"
+  - `http://localhost:8080/register-user` → Para registrar usuários
+  - `http://localhost:8080/has-admin` → Verifica se possui algum administrador cadastrado
 
 **Observação:** O frontend ainda não está conectado ao backend.
 
