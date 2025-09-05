@@ -1,11 +1,13 @@
 use actix_web::{web, App, HttpServer};
 use crate::api::routes::index::server_status;
+use  crate::api::routes::signup::register_user;
 
 pub async fn start_server() -> std::io::Result<()> {
     HttpServer::new(|| { 
         App::new()
             .service(
                 web::scope("/api")
+                            .service(register_user)
                 )
             .service(server_status)
         })
