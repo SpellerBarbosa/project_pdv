@@ -26,3 +26,4 @@ tauri-plugin-log = "2"
 actix-web = "4.11.0"
 tauri-plugin-dialog = "2.4.0"
 rusqlite = { version = "0.37.0", features = ["bundled"] }
+actix-cors = "0.7.1"

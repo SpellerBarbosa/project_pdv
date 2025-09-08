@@ -32,7 +32,11 @@ A escolha pelo funcionamento local garante:
 ## Funcionalidades (em desenvolvimento)
 #### Frontend utilizando Nuxt4 e TailwindCSS (frontend rodando `http://localhost:3000`)
 - Tela de **login**
-- **Store** (gerenciamento de estados globais) 
+- **Store** (gerenciamento de estados globais)
+- **Middleware** para verificar se existe um administrador cadastrado.  
+  - Caso **não exista**, o botão de cadastro de administrador aparece.  
+  - Caso **exista**, o botão é ocultado.
+- **Painel de navegação arrastável** para navegar entre as telas no modo desenvolvimento, sem necessidade de login.
 #### Backend (rodando `http://localhost:8080`)
 - API com Actix-web contendo duas rotas :
   - `/` → Retorna "Servidor funcionando"

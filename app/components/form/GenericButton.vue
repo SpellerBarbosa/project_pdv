@@ -10,7 +10,9 @@
 			type: String,
 			default: '',
 		},
-		btnStyle: String,
+		btnStyle:{
+			type: String
+		}
 	});
 
 	const emit = defineEmits<{
@@ -24,7 +26,8 @@
 <template>
 	<button
 		:type="props.btnType"
-		:class="['w-[120px] h-[40px] bg-green-700 rounded-lg font-semibold uppercase tracking-wider text-white cursor-pointer', props.btnStyle]"
+		class='w-[120px] h-[40px] rounded-lg font-semibold uppercase tracking-wider bg-green-700 text-white cursor-pointe'
+		:class="props.btnStyle"
 		@click="emitValue"
 	>
 		{{ props.btnName }}

@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@layer utilities {
+    .item-menu{
+        @apply w-[120px] h-full grid place-items-center uppercase tracking-wider font-semibold cursor-pointer hover:bg-gray-300;
+    }
+
+    .item-submenu{
+        @apply w-[120px] h-[30px] grid place-items-center hover:bg-gray-300;
+    }
+}

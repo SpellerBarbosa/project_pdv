@@ -6,6 +6,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css:['~/assets/css/main.css'],
   modules:['@pinia/nuxt'],
+  runtimeConfig:{
+    public:{
+      nuxtEnv: process.env.NUXT_ENV || "production"
+    }
+  },
   vite:{
     plugins:[
       tailwindcss(),

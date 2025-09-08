@@ -1,5 +1,8 @@
+<script setup lang="ts">
+import Menu from '~/components/dashboard/Menu.vue';
+</script>
 <template>
-    <main>
-        <h1>dashboard sistema</h1>
+    <main class="w-screen h-screen">
+        <Menu />
     </main>
 </template>

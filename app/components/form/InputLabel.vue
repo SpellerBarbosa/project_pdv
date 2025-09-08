@@ -6,6 +6,7 @@
 		labelName?: string;
 		styleLabel?: string;
 		styleInput?: string;
+		spanStyle?:string;
 		modelValue?:string;
 	}>();
 
@@ -26,7 +27,7 @@
 		:class="['w-[90%] flex', styleLabel]"
 	>
 		<span
-			class="w-[30%] grid place-items-center p-2 bg-green-500 text-white text-shadow-2xs text-shadow-black rounded-l-2xl uppercase font-semibold tracking-wider"
+			:class="['w-[30%] grid place-items-center p-2 bg-green-500 text-white text-shadow-2xs text-shadow-black rounded-l-2xl uppercase font-semibold tracking-wider', spanStyle]"
 			>{{ labelName }}</span
 		>
 		<input

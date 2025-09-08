@@ -3,9 +3,13 @@
 	import GenericButton from '../form/GenericButton.vue';
 	import { message } from '@tauri-apps/plugin-dialog';
 	import { ref } from 'vue';
+	import { useHasAdminStore } from '~/store/has_admin';
+	import { useRouter } from 'vue-router';
 
 	const user = ref<string>('');
 	const password = ref<string>('');
+	const has_admin = useHasAdminStore();
+	const router = useRouter()
 
 	async function handleSubmit() {
 		if (!user.value || !password.value) {
@@ -14,6 +18,10 @@
 				kind: 'error',
 			});
 		}
+	}
+
+	const goToRegister = () =>{
+		router.push("/register")
 	}
 </script>
 
@@ -36,9 +44,11 @@
 				btnName="Entrar"
 				@click="handleSubmit"
 			/>
-			<GenericButton 
+			<GenericButton
+				v-if="has_admin.has_admin === false || has_admin.has_admin === undefined" 
                 btnName="Cadastrar Administrador"
-                btnStyle="text-xs" 
+                btnStyle="text-xs"
+				@click="goToRegister" 
             />
 		</section>
 	</form>
