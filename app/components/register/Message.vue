@@ -3,9 +3,14 @@ import GenericButton from '../form/GenericButton.vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
+const emit = defineEmits(['confirm', 'close']);
+
+const confirmAction = () => emit('confirm');
+const closeAction = () => emit('close');
 
 const goToLogin = () =>{
     router.push("/")
+    closeAction()
 }
 
 </script>
@@ -19,7 +24,7 @@ const goToLogin = () =>{
                 <span class="w-[90%] block h-[2px] bg-white origin-center -rotate-45 -translate-y-[1px]"></span>
             </div>
         </h1>
-        <p class="w-[80%] mt-[30px] text-justify font-semibold">Essa tela so aprecererá uma vez para o cadastrdo do primeiro administrador, 
+        <p class="w-[80%] mt-[30px] text-justify font-semibold">Essa tela so aprecererá uma vez para o cadastrcleao do primeiro administrador, 
            coloque um id e senha  facil de lembrar, assim que  o administrador for cadastrado,
            a tela de registro so ficara disponivel dentro do sistema.
         </p>
@@ -27,6 +32,7 @@ const goToLogin = () =>{
             <GenericButton 
             btn-name="ok"
             btn-style="text-xs hover:bg-blue-600 cursor-pointer"
+            @click="confirmAction"
             />
         </div>
     </section>

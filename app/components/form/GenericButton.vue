@@ -26,7 +26,7 @@
 <template>
 	<button
 		:type="props.btnType"
-		class='w-[120px] h-[40px] rounded-lg font-semibold uppercase tracking-wider bg-green-700 text-white cursor-pointe'
+		class='w-[120px] h-[40px] rounded-lg font-semibold uppercase tracking-wider bg-green-700 text-white cursor-pointer'
 		:class="props.btnStyle"
 		@click="emitValue"
 	>

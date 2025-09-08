@@ -23,9 +23,9 @@ const redirectLogin = () =>{
         :style="{ top: y + 'px', left: x + 'px' }" @mousedown="$emit('dragstart')">
         <h1 class="p-1 uppercase font-semibold tracking-wider text-shadow-2xs text-black font-sans">Botões de navegação</h1>
         <section class="w-full flex items-center justify-center gap-2">
-            <generic-button btn-name="Login" @click="redirectLogin" />
-            <generic-button btn-name="dashboard" @click="redirectDashboard"/>
-            <generic-button btn-name="cadastro administrador" btn-style="text-xs" />
+            <generic-button btn-name="Login" @click="redirectLogin" class="cursor-pointer"/>
+            <generic-button btn-name="dashboard" @click="redirectDashboard" class="cursor-pointer" />
+            <generic-button btn-name="cadastro administrador" btn-style="text-xs" class="cursor-pointer" />
         </section>
     </div>
 </template>

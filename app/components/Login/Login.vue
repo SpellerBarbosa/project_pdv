@@ -38,6 +38,7 @@
 			labelName="Senha"
 			place="*******"
 			v-model="password"
+			spanLabel="text-white"
 		/>
 		<section class="w-[80%] h-[20%] flex items-center justify-center gap-3">
 			<GenericButton
