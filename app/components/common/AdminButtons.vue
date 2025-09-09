@@ -19,7 +19,7 @@ const redirectLogin = () =>{
 </script>
 <template>
     <div v-if="config.public.nuxtEnv"
-        class="w-[400px] h-[100px] bg-white flex flex-col items-center justify-evenly rounded-xl absolute cursor-move select-none shadow-2xl shadow-black"
+        class="w-[400px] h-[100px] bg-white flex flex-col items-center justify-evenly rounded-xl absolute cursor-move select-none shadow-2xl shadow-black z-50"
         :style="{ top: y + 'px', left: x + 'px' }" @mousedown="$emit('dragstart')">
         <h1 class="p-1 uppercase font-semibold tracking-wider text-shadow-2xs text-black font-sans">Botões de navegação</h1>
         <section class="w-full flex items-center justify-center gap-2">
