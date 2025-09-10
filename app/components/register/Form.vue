@@ -3,9 +3,11 @@
 	import Select from './Select.vue';
 	import { ref } from 'vue';
 	import img_user_add from '~/assets/img/user-add.png';
-	import img_success from '~/assets/img/sucess.png';
 	import Loading from '../common/Loading.vue';
 	import { useIsLoggedStore } from '~/store/isLogged';
+	import Alert from '../common/Alert.vue';
+	import errorImage from '~/assets/img/error.png'
+	import successImage from '~/assets/img/check.png'
 
 	const image = ref(img_user_add);
 	const store = useIsLoggedStore();
@@ -13,10 +15,21 @@
     const user = ref<string>("");
     const password = ref<string>("");
     const role = ref<string>("");
+	const title = ref<string>("");
+	const alt = ref<string>("");
+	const img = ref<string>("");
+	const message = ref<string>("");
+	const btnName = ref<string>("");
+	const btnStyle = ref<string>("");
 
     const submitRegister = async() =>{
         if(!name.value || !user.value || !password.value || !role.value){
-            
+			img.value = errorImage
+			alt.value ="imagem de erro"
+			title.value = "Oops..."
+			message.value = "Alguns dos campos está em branco, preencha todos corretamente."
+			btnName.value = "Corrigir"
+			btnStyle.value= "uppercase font-semibold tracking-[1px] bg-red-600 text-white cursor-pointer text-shadow-2xs font-mono"			
         }
         
         try {
@@ -35,7 +48,7 @@
 		>
 			Cadastrar acesso
 		</h1>
-		<form class="w-full h-[80%] flex flex-col items-center justify-evenly">
+		<form class="w-full h-[80%] flex flex-col items-center justify-evenly" @submit.prevent="submitRegister">
 			<InputLabel
 				labelName="nome"
 				link="name"
@@ -53,7 +66,7 @@
 			/>
 			<Select selectName="Escolha um acesso" v-model="role"/>
 			<button
-				type="button"
+				type="submit"
 				class="w-[180px] h-[40px] flex bg-blue-500 items-center rounded-lg shadow-xs shadow-gray-500 cursor-pointer"
                 :disabled="store.isLoading"
 			>
@@ -74,5 +87,6 @@
 				>
 			</button>
 		</form>
+		<Alert v-show="!!message" :image="img" :alt="alt" :title="title" :message="message" :btnName="btnName" :btnStyle="btnStyle"/>
 	</section>
 </template>
