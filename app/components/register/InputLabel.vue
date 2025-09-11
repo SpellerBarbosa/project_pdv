@@ -11,12 +11,12 @@
 	}>();
 
 	const emit = defineEmits<{
-		(e: 'updateValue', value: string): void;
+		(e: 'update:modelValue', value: string): void;
 	}>();
 
 	const updateValue = (event: Event) => {
 		const input = event.target as HTMLInputElement;
-		emit('updateValue', input.value);
+		emit('update:modelValue', input.value);
 	};
 
 	const type = props.inputType || 'text';
