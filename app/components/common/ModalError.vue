@@ -9,7 +9,7 @@ const emit = defineEmits<{
 </script>
 <template>
   <section
-    class="w-screen h-screen bg-[rgba(85,85,85,.6)] absolute top-0 grid place-items-center"
+    class="w-full h-full bg-[rgba(85,85,85,0.2)] absolute top-0 grid place-items-center"
   >
     <article class="w-[350px] h-[250px] bg-white rounded-2xl border-2">
       <div

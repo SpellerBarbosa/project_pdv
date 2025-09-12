@@ -8,6 +8,7 @@ import { useIsLoggedStore } from "~/store/isLogged";
 import errorImage from "~/assets/img/error.png";
 import successImage from "~/assets/img/check.png";
 import ModalError from "../common/ModalError.vue";
+import ModalSuccess from "../common/ModalSuccess.vue";
 
 const image = ref(img_user_add);
 const store = useIsLoggedStore();
@@ -15,21 +16,28 @@ const name = ref<string>("");
 const user = ref<string>("");
 const password = ref<string>("");
 const role = ref<string>("");
-const message = ref<string>("");
+const messageError = ref<string>("");
+const messageSuccess=ref<string>("");
+
 
 const submitRegister = async () => {
   if (!name.value || !user.value || !password.value || !role.value) {
-    message.value = "Verifique se todos os campos foram preenchidos corretamente."
+    messageError.value = "Verifique se todos os campos foram preenchidos corretamente."
     return
   }
 
+  messageSuccess.value = "cadastro efetuado com sucesso"
+  setTimeout(() => {
+    messageSuccess.value = ""
+  }, 3000);
+  
   try {
   } catch (error) {}
 };
 </script>
 <template>
   <section
-    class="w-[500px] h-[650px] bg-[rgba(255,255,255,.9)] rounded-2xl flex flex-col items-center"
+    class="w-[500px] h-[650px] bg-[rgba(255,255,255,.9)] rounded-2xl flex flex-col items-center relative"
   >
     <h1
       class="w-full h-[20%] grid place-items-center text-2xl uppercase font-semibold font-mono"
@@ -67,6 +75,7 @@ const submitRegister = async () => {
         >
       </button>
     </form>
-	<ModalError v-show="!!message" :message="message"  @click="message = ''"/>
+	<ModalError v-show="!!messageError" :message="messageError"  @click="messageError = ''"/>
+  <ModalSuccess  :message="messageSuccess" :view="!messageSuccess" />
   </section>
 </template>
